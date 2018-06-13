@@ -1,14 +1,13 @@
 {
-  "name": "sdtools",
+  "name": "sd-servicedesk-tools-server",
   "version": "0.0.1",
   "description": "Service Desk Tools",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js",
-    "client": "npm run start --prefix client"
+    "server": "nodemon index.js"
   },
-  "author": "Adrian Durran",
-  "license": "ISC",
+  "author": "Adrian Durran (Government Digital Service)",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.2",
