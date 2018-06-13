@@ -17,7 +17,7 @@ import {
 } from './types';
 
 export const fetchClientAssets = username => async dispatch => {
-  const assetList = await axios.get('/api/whd/client/assets', {
+  const assetList = await axios.get('/api/whd/assets/client', {
     params: {
       userName: username
     }
@@ -35,7 +35,7 @@ export const fetchClientAssets = username => async dispatch => {
 };
 
 export const addAssetDetail = (assetId, client) => async dispatch => {
-  const assetListFull = await axios.get('/api/whd/assets', {
+  const assetListFull = await axios.get('/api/whd/assets/details', {
     params: {
       assetId: assetId
     }
@@ -105,7 +105,7 @@ export const fetchAssetLocations = () => dispatch => {
 };
 
 export const updateAssetReservable = newres => async dispatch => {
-  const newRessy = await axios.put('/api/whd/asset/reservable', newres);
+  const newRessy = await axios.put('/api/whd/assets/reservable', newres);
   if (newRessy.status === 200) {
     dispatch({ type: UPDATE_ASSET_RESV_ASSET, payload: newres.isRes });
   }
@@ -113,7 +113,7 @@ export const updateAssetReservable = newres => async dispatch => {
 
 export const updateAssetLocation = newloc => dispatch => {
   axios
-    .post('/api/whd/asset/location', newloc)
+    .post('/api/whd/assets/location', newloc)
     .then(res => {
       // update redux with new address/pulls down new client
       dispatch(searchAssets(res.data.assetNumber));
@@ -127,7 +127,7 @@ export const fetchAssetStatus = () => async dispatch => {
 };
 
 export const updateAssetStatus = (asset, fromC) => async dispatch => {
-  const res = await axios.put('/api/whd/asset/status', {
+  const res = await axios.put('/api/whd/assets/status', {
     data: {
       assetId: asset.assetId,
       statusId: asset.statusId,
@@ -154,7 +154,7 @@ export const updateAssetStatus = (asset, fromC) => async dispatch => {
 };
 
 export const updateAssetClient = (assetid, client, fromC) => async dispatch => {
-  const res = await axios.put('/api/whd/asset/client', {
+  const res = await axios.put('/api/whd/assets/client', {
     data: {
       assetId: assetid,
       client: client
