@@ -12,6 +12,8 @@ const keys = require('./config/keys');
 require('./models/tech');
 require('./services/passport');
 
+const clientRoutes = require('./routes/clientRoutes');
+
 // connect to the database
 const connDb = mongoose.connect(keys.mongoURI).then(
   () => {
@@ -42,7 +44,7 @@ app.use(morgan('dev'));
 
 // import routes
 require('./routes/authRoutes')(app);
-require('./routes/clientRoutes')(app);
+app.use('/api/whd/clients', clientRoutes);
 require('./routes/assetRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
