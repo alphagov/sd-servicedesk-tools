@@ -1,35 +1,17 @@
 const passport = require('passport');
-const axios = require('axios');
-const mongoose = require('mongoose');
+const express = require('express');
+const router = express.Router();
 
-const Tech = mongoose.model('techs');
+const authController = require('../controllers/authController');
 
 const requireLogin = require('../middlewares/requireLogin');
 
-module.exports = app => {
-  app.get('/auth/whd', passport.authenticate('whd'), (req, res) => {
-    res.send(req.user);
-  });
+router.get('/', passport.authenticate('whd'), authController.authenticateUser);
 
-  app.get('/api/whd/logout', (req, res) => {
-    req.logout();
-    res.redirect('/');
-  });
+router.get('/logout', authController.logoutUser);
 
-  app.get('/api/whd/current_tech', async (req, res) => {
-    res.send(req.user);
-    // maybe not return the api key here?
-  });
+router.get('/current_tech', authController.currentUser);
 
-  app.post('/api/whd/enrol_tech', requireLogin, async (req, res) => {
-    const { firstName, lastName, apiKey } = req.body;
-    const existingTech = await Tech.findByIdAndUpdate(
-      req.user.id,
-      {
-        $set: { firstName, lastName, apiKey }
-      },
-      { new: true }
-    );
-    res.send(existingTech);
-  });
-};
+router.post('/enrol_tech', requireLogin, authController.enrolUser);
+
+module.exports = router;

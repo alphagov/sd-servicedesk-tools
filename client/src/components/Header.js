@@ -11,7 +11,7 @@ class Header extends Component {
       return (
         <div>
           <Menu.Item>
-            <Button secondary href="/api/whd/logout">
+            <Button secondary href="/api/whd/auth/logout">
               Logout
             </Button>
           </Menu.Item>
