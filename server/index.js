@@ -15,6 +15,7 @@ require('./services/passport');
 const clientRoutes = require('./routes/clientRoutes');
 const assetRoutes = require('./routes/assetRoutes');
 const authRoutes = require('./routes/authRoutes');
+const ticketRoutes = require('./routes/ticketRoutes');
 
 // connect to the database
 const connDb = mongoose.connect(keys.mongoURI).then(
@@ -48,6 +49,7 @@ app.use(morgan('dev'));
 app.use('/api/whd/auth', authRoutes);
 app.use('/api/whd/clients', clientRoutes);
 app.use('/api/whd/assets', assetRoutes);
+app.use('/api/whd/tickets', ticketRoutes);
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));

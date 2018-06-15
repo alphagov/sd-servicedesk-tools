@@ -67,3 +67,7 @@ export const selectClientAssetsWithStatus = createSelector(
     });
   }
 );
+
+//  ******************************** TICKETS
+
+export const selectNewStartTicketsPending = state => state.newStartPending;

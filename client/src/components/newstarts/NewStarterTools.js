@@ -4,8 +4,18 @@ import { connect } from 'react-redux';
 
 import { Header, Card, Icon } from 'semantic-ui-react';
 
+import { fetchNewsStartsPending } from '../../actions/starters';
+import { selectNewStartTicketsPending } from '../../reducers/selectors';
+
 class NewStartsHome extends Component {
+  componentDidMount() {
+    const { fetchNewsStartsPending } = this.props;
+
+    fetchNewsStartsPending();
+  }
+
   render() {
+    const { pending } = this.props;
     return (
       <div>
         <Card.Group itemsPerRow={3}>
@@ -20,7 +30,7 @@ class NewStartsHome extends Component {
           <Card raised>
             <Card.Content>
               <Header as="h5">
-                <Icon name="handshake" size="large" />
+                <Icon name="user" size="large" />
                 Contractor/External Staff
               </Header>
             </Card.Content>
@@ -32,11 +42,27 @@ class NewStartsHome extends Component {
                 Waiting for Approval
               </Header>
             </Card.Content>
+            <Card.Content extra>{pending.length} Tickets pending</Card.Content>
           </Card>
         </Card.Group>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    pending: selectNewStartTicketsPending(state)
+  };
+};
+
+const mapDispatchToProps = {
+  fetchNewsStartsPending
+};
+
+NewStartsHome = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NewStartsHome);
 
 export default NewStartsHome;
