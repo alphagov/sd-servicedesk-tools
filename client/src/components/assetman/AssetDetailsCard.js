@@ -38,6 +38,10 @@ class AssetDetailsCard extends Component {
               )}
             </Card.Header>
             <Card.Meta>{asset.assetNumber}</Card.Meta>
+            {asset.model && (
+              <Card.Meta>{asset.model.assettype.assetType}</Card.Meta>
+            )}
+
             <Card.Description>
               {asset.location ? (
                 <List>
@@ -78,8 +82,9 @@ const mapDispatchToProps = {
   clearSearchAssets
 };
 
-AssetDetailsCard = connect(mapStateToProps, mapDispatchToProps)(
-  AssetDetailsCard
-);
+AssetDetailsCard = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AssetDetailsCard);
 
 export default AssetDetailsCard;
