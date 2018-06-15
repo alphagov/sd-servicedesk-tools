@@ -35,7 +35,7 @@ class NewStartsHome extends Component {
               </Header>
             </Card.Content>
           </Card>
-          <Card raised>
+          <Card raised as={Link} to="/tickets/newstarts/pending">
             <Card.Content>
               <Header as="h5">
                 <Icon name="exclamation triangle" size="large" />

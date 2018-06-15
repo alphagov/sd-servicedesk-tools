@@ -12,6 +12,8 @@ import AssetManager from './components/assetman/AssetManager';
 import AssetFinder from './components/assetman/AssetFinder';
 import AssetMaker from './components/assetman/AssetMaker';
 
+import PendingTickets from './components/newstarts/PendingTickets';
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -25,6 +27,7 @@ const Routes = () => {
           <Route path="/asset-manager" component={AssetManager} />
           <Route path="/asset-finder" component={AssetFinder} />
           <Route path="/asset-maker" component={AssetMaker} />
+          <Route path="/tickets/newstarts/pending" component={PendingTickets} />
         </Container>
       </div>
     </BrowserRouter>
