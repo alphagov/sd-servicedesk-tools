@@ -3,6 +3,7 @@ import { Header, Card, Modal } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import 'moment-timezone';
+import moment from 'moment';
 import _ from 'lodash';
 import { removeHTML } from '../../utils/stringManip';
 
@@ -28,43 +29,31 @@ class PendingTickets extends Component {
     });
   };
 
-  renderModalTicket() {
-    const { ticket } = this.props;
-    if (_.isEmpty(ticket)) {
-      return <Modal.Header>No ticket found</Modal.Header>;
-    }
-
-    return (
-      <div>
-        <Modal.Header>
-          {ticket.id} - Pending New Start for{' '}
-          {ticket.ticketCustomFields[0].restValue}&nbsp;{
-            ticket.ticketCustomFields[1].restValue
-          }
-        </Modal.Header>
-        <Modal.Content>
-          <Modal.Description>
-            <Header>
-              Starts&nbsp;<Moment fromNow>
-                {ticket.ticketCustomFields[6].restValue}
-              </Moment>
-            </Header>
-            <p>{ticket.detail}</p>
-          </Modal.Description>
-        </Modal.Content>
-      </div>
-    );
-  }
-
   renderPendingStarts() {
     const { pending } = this.props;
     return pending.map(tkt => {
+      let timeDiff = moment(tkt.ticketCustomFields[6].restValue).isSameOrAfter(
+        Date.now()
+      );
       return (
-        <Card key={tkt.id} onClick={this.showTicketDetails} value={tkt.id}>
+        <Card
+          key={tkt.id}
+          onClick={this.showTicketDetails}
+          value={tkt.id}
+          {...(!timeDiff ? { color: 'red' } : {})}
+        >
           <Card.Content>
-            <Card.Header>{tkt.id}</Card.Header>
+            <Card.Header>
+              {tkt.id}&nbsp;-&nbsp;{tkt.ticketCustomFields[0].restValue}&nbsp;{
+                tkt.ticketCustomFields[1].restValue
+              }
+            </Card.Header>
             <Card.Meta>Client: {tkt.displayClient}</Card.Meta>
-            <Card.Description>{tkt.shortDetail}</Card.Description>
+            <Card.Description>
+              Starts&nbsp;<Moment fromNow>
+                {tkt.ticketCustomFields[6].restValue}
+              </Moment>
+            </Card.Description>
           </Card.Content>
           <Card.Content extra>
             Last updated &nbsp;
