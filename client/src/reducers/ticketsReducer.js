@@ -1,6 +1,7 @@
 import {
   NEW_START_TICKETS_PENDING,
-  FETCH_TICKET_DETAILS
+  FETCH_TICKET_DETAILS,
+  CLEAR_START_TICKETS_PENDING
 } from '../actions/types';
 
 const INITIAL_STATE_A = [];
@@ -9,7 +10,10 @@ const INITIAL_STATE_O = {};
 export const newStartPendingReducer = (state = INITIAL_STATE_A, action) => {
   switch (action.type) {
     case NEW_START_TICKETS_PENDING:
-      return action.payload;
+      return [...state, action.payload];
+
+    case CLEAR_START_TICKETS_PENDING:
+      return INITIAL_STATE_A;
 
     default:
       return state;

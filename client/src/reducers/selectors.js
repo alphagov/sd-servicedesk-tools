@@ -72,3 +72,10 @@ export const selectClientAssetsWithStatus = createSelector(
 
 export const selectNewStartTicketsPending = state => state.newStartPending;
 export const selectTicket = state => state.ticket;
+
+export const selectNewStartTicketsPendingSorted = createSelector(
+  selectNewStartTicketsPending,
+  newstarts => {
+    return _.orderBy(newstarts, 'ticketCustomFields[6].restValue', 'asc');
+  }
+);

@@ -27,5 +27,6 @@ export const UPDATE_ASSET_ROOMS_ASSET = 'update_asset_rooms_asset';
 export const UPDATE_ASSET_CLIENTS = 'update_asset_clients';
 
 // tickets
+export const CLEAR_START_TICKETS_PENDING = 'clear_start_tickets_pending';
 export const NEW_START_TICKETS_PENDING = 'new_start_tickets_pending';
 export const FETCH_TICKET_DETAILS = 'fetch_ticket_details';

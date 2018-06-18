@@ -7,7 +7,7 @@ import _ from 'lodash';
 import { removeHTML } from '../../utils/stringManip';
 
 import {
-  selectNewStartTicketsPending,
+  selectNewStartTicketsPendingSorted,
   selectTicket
 } from '../../reducers/selectors';
 import { fetchTicketDetails } from '../../actions/tickets';
@@ -23,7 +23,6 @@ class PendingTickets extends Component {
     });
 
   showTicketDetails = (e, { value }) => {
-    console.log(value);
     this.props.fetchTicketDetails(value).then(() => {
       this.setState({ openModal: true });
     });
@@ -128,7 +127,7 @@ const mapDispatchToProps = {
 
 const mapStateToProps = state => {
   return {
-    pending: selectNewStartTicketsPending(state),
+    pending: selectNewStartTicketsPendingSorted(state),
     ticket: selectTicket(state)
   };
 };
