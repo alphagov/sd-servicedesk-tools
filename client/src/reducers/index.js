@@ -15,7 +15,7 @@ import {
   assetRoomsReducer
 } from './assetsReducer';
 
-import { newStartPendingReducer } from './ticketsReducer';
+import { newStartPendingReducer, ticketReducer } from './ticketsReducer';
 
 const reducer = combineReducers({
   auth: authReducer,
@@ -28,6 +28,7 @@ const reducer = combineReducers({
   assetLocations: assetLocationsReducer,
   assetRooms: assetRoomsReducer,
   newStartPending: newStartPendingReducer,
+  ticket: ticketReducer,
   form: reduxForm
 });
 

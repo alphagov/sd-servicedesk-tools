@@ -16,5 +16,14 @@ module.exports = {
     });
 
     res.send(pendingStarts.data);
+  },
+
+  getTicketDetails: async (req, res) => {
+    const tktDB = await axios.get(`${ticketURI}/${req.params.id}`, {
+      params: {
+        apiKey: req.user.apiKey
+      }
+    });
+    res.send(tktDB.data);
   }
 };

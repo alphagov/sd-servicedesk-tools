@@ -9,5 +9,6 @@ router.get(
   requireLogin,
   ticketController.getPendingNewStarts
 );
+router.get('/:id', requireLogin, ticketController.getTicketDetails);
 
 module.exports = router;
