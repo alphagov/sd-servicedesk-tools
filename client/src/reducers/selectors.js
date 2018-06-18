@@ -71,3 +71,4 @@ export const selectClientAssetsWithStatus = createSelector(
 //  ******************************** TICKETS
 
 export const selectNewStartTicketsPending = state => state.newStartPending;
+export const selectTicket = state => state.ticket;

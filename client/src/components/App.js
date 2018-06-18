@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import 'semantic-ui-css/semantic.min.css';
+import '../styles/styles.css';
 
 import { fetchTech } from '../actions/auth';
 
@@ -24,4 +25,7 @@ class App extends Component {
 
 const mapDispatchToProps = { fetchTech };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
