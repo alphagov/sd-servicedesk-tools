@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header, Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
+import 'moment-timezone';
 
 import { selectNewStartTicketsPending } from '../../reducers/selectors';
 
@@ -17,7 +18,10 @@ class PendingTickets extends Component {
             <Card.Description>{tkt.shortDetail}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            Last updated <Moment fromNow>{tkt.lastUpdated}</Moment>
+            Last updated &nbsp;
+            <Moment fromNow tz="Europe/London">
+              {tkt.lastUpdated}
+            </Moment>
           </Card.Content>
         </Card>
       );
