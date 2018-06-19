@@ -4,8 +4,7 @@ import {
   NEW_START_TICKETS_PENDING,
   NEW_START_TICKETS_GDS,
   CLEAR_START_TICKETS_GDS,
-  CLEAR_START_TICKETS_PENDING,
-  PENDING
+  CLEAR_START_TICKETS_PENDING
 } from './types';
 
 export const fetchNewsStartsPending = () => async dispatch => {
@@ -30,6 +29,8 @@ export const fetchTicketDetailsPending = id => async dispatch => {
 
 export const fetchTicketDetailsGDS = id => async dispatch => {
   const res = await axios.get(`/api/whd/tickets/${id}`);
+  // add into contractors here
+  // nope we really need some redux middleware
   dispatch({ type: NEW_START_TICKETS_GDS, payload: res.data });
 };
 

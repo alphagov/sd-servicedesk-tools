@@ -26,7 +26,7 @@ class NewStartsHome extends Component {
     return (
       <div>
         <Card.Group itemsPerRow={3}>
-          <Card raised>
+          <Card raised as={Link} to="/tickets/newstarts/gds">
             <Card.Content>
               <Header as="h5">
                 <Icon name="users" size="large" />

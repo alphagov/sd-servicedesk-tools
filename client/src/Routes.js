@@ -13,6 +13,7 @@ import AssetFinder from './components/assetman/AssetFinder';
 import AssetMaker from './components/assetman/AssetMaker';
 
 import PendingTickets from './components/newstarts/PendingTickets';
+import GDSStarterTickets from './components/newstarts/GDSStarterTickets';
 
 const Routes = () => {
   return (
@@ -28,6 +29,7 @@ const Routes = () => {
           <Route path="/asset-finder" component={AssetFinder} />
           <Route path="/asset-maker" component={AssetMaker} />
           <Route path="/tickets/newstarts/pending" component={PendingTickets} />
+          <Route path="/tickets/newstarts/gds" component={GDSStarterTickets} />
         </Container>
       </div>
     </BrowserRouter>
