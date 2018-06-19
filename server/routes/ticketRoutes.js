@@ -9,6 +9,7 @@ router.get(
   requireLogin,
   ticketController.getPendingNewStarts
 );
+router.get('/newstart/gds', requireLogin, ticketController.getGDSNewStarts);
 router.get('/:id', requireLogin, ticketController.getTicketDetails);
 
 module.exports = router;

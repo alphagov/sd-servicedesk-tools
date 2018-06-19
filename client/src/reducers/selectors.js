@@ -79,3 +79,12 @@ export const selectNewStartTicketsPendingSorted = createSelector(
     return _.orderBy(newstarts, 'ticketCustomFields[6].restValue', 'asc');
   }
 );
+
+export const selectGDSNewStartTickets = state => state.gdsStarters;
+
+export const selectGDSNewStartTicketsSorted = createSelector(
+  selectGDSNewStartTickets,
+  newstarts => {
+    return _.orderBy(newstarts, 'ticketCustomFields[6].restValue', 'asc');
+  }
+);

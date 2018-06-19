@@ -4,18 +4,25 @@ import { connect } from 'react-redux';
 
 import { Header, Card, Icon } from 'semantic-ui-react';
 
-import { fetchNewsStartsPending } from '../../actions/starters';
-import { selectNewStartTicketsPending } from '../../reducers/selectors';
+import {
+  fetchNewsStartsPending,
+  fetchNewStartsApprovedGDS
+} from '../../actions/starters';
+import {
+  selectNewStartTicketsPending,
+  selectGDSNewStartTickets
+} from '../../reducers/selectors';
 
 class NewStartsHome extends Component {
   componentDidMount() {
-    const { fetchNewsStartsPending } = this.props;
+    const { fetchNewsStartsPending, fetchNewStartsApprovedGDS } = this.props;
 
     fetchNewsStartsPending();
+    fetchNewStartsApprovedGDS();
   }
 
   render() {
-    const { pending } = this.props;
+    const { pending, gdsStarters } = this.props;
     return (
       <div>
         <Card.Group itemsPerRow={3}>
@@ -23,9 +30,10 @@ class NewStartsHome extends Component {
             <Card.Content>
               <Header as="h5">
                 <Icon name="users" size="large" />
-                Permanent Staff
+                GDS Staff
               </Header>
             </Card.Content>
+            <Card.Content extra>{gdsStarters.length} Tickets</Card.Content>
           </Card>
           <Card raised>
             <Card.Content>
@@ -52,12 +60,14 @@ class NewStartsHome extends Component {
 
 const mapStateToProps = state => {
   return {
-    pending: selectNewStartTicketsPending(state)
+    pending: selectNewStartTicketsPending(state),
+    gdsStarters: selectGDSNewStartTickets(state)
   };
 };
 
 const mapDispatchToProps = {
-  fetchNewsStartsPending
+  fetchNewsStartsPending,
+  fetchNewStartsApprovedGDS
 };
 
 NewStartsHome = connect(
