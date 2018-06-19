@@ -66,6 +66,18 @@ class PendingTickets extends Component {
     });
   }
 
+  renderTicketNotes(notes) {
+    let i = notes.length - 1;
+    return (
+      <span>
+        <Header as="h4">
+          Latest note on ticket was <Moment fromNow>{notes[i].date}</Moment>
+        </Header>
+        <p>{removeHTML(notes[1].mobileNoteText)}</p>
+      </span>
+    );
+  }
+
   render() {
     const { ticket } = this.props;
     return (
@@ -96,11 +108,17 @@ class PendingTickets extends Component {
                 </Header>
                 <p>{removeHTML(ticket.detail)}</p>
                 <p>
-                  {ticket.ticketCustomFields[0].restValue}'s role will be as a{' '}
-                  {ticket.ticketCustomFields[2].restValue} in{' '}
-                  {ticket.ticketCustomFields[3].restValue} and their Line
+                  {ticket.ticketCustomFields[0].restValue}'s role will be&nbsp;
+                  {ticket.ticketCustomFields[2].restValue} in&nbsp;
+                  {ticket.ticketCustomFields[3].restValue} and their Line&nbsp;
                   Manager is {ticket.ticketCustomFields[5].restValue}
                 </p>
+
+                {ticket.notes.length > 0 ? (
+                  <span>{this.renderTicketNotes(ticket.notes)}</span>
+                ) : (
+                  ''
+                )}
               </Modal.Description>
             </Modal.Content>
           </Modal>
