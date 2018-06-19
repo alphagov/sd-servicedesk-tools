@@ -25,24 +25,17 @@ class NewStartsHome extends Component {
     const { pending, gdsStarters } = this.props;
     return (
       <div>
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={2}>
           <Card raised as={Link} to="/tickets/newstarts/gds">
             <Card.Content>
               <Header as="h5">
                 <Icon name="users" size="large" />
-                GDS Staff
+                New Starts Approved
               </Header>
             </Card.Content>
             <Card.Content extra>{gdsStarters.length} Tickets</Card.Content>
           </Card>
-          <Card raised>
-            <Card.Content>
-              <Header as="h5">
-                <Icon name="user" size="large" />
-                Contractor/External Staff
-              </Header>
-            </Card.Content>
-          </Card>
+
           <Card raised as={Link} to="/tickets/newstarts/pending">
             <Card.Content>
               <Header as="h5">
