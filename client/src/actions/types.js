@@ -33,4 +33,4 @@ export const CLEAR_START_TICKETS_GDS = 'clear_start_tickets_gds';
 export const NEW_START_TICKETS_GDS = 'new_start_tickets_gds';
 
 export const FETCH_TICKET_DETAILS = 'fetch_ticket_details';
-export const PENDING = 'pending';
+export const CLEAR_TICKET_DETAILS = 'clear_ticket_details';

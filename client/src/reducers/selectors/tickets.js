@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import _ from 'lodash';
 
 export const selectTicket = state => state.ticket;
+
 export const selectNewStartTicketsPending = state => state.newStartPending;
 
 export const selectNewStartTicketsPendingSorted = createSelector(

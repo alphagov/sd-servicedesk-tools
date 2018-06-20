@@ -5,8 +5,16 @@ import Moment from 'react-moment';
 import moment from 'moment';
 
 import { selectGDSNewStartTicketsSorted } from '../../reducers/selectors/tickets';
+import { fetchTicketDetails } from '../../actions/tickets';
 
 class GDSStarterTickets extends Component {
+  loadTicketDetails = (e, { value }) => {
+    const { fetchTicketDetails, history } = this.props;
+    fetchTicketDetails(value).then(() => {
+      history.push(`/tickets/newstarts/details/${value}`);
+    });
+  };
+
   renderNewStarts() {
     const { starters } = this.props;
     return starters.map(tkt => {
@@ -16,7 +24,7 @@ class GDSStarterTickets extends Component {
       return (
         <Card
           key={tkt.id}
-          onClick={this.showTicketDetails}
+          onClick={this.loadTicketDetails}
           value={tkt.id}
           {...(!timeDiff ? { color: 'red' } : {})}
         >
@@ -55,12 +63,19 @@ class GDSStarterTickets extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  fetchTicketDetails
+};
+
 const mapStateToProps = state => {
   return {
     starters: selectGDSNewStartTicketsSorted(state)
   };
 };
 
-GDSStarterTickets = connect(mapStateToProps)(GDSStarterTickets);
+GDSStarterTickets = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GDSStarterTickets);
 
 export default GDSStarterTickets;
