@@ -27,6 +27,8 @@ class ContractorStarterTickets extends Component {
               }
             </Card.Header>
             <Card.Meta>Client: {tkt.displayClient}</Card.Meta>
+            <Card.Meta>Analyst: {tkt.clientTech.displayName}</Card.Meta>
+
             <Card.Description>
               Starts&nbsp;<Moment fromNow>
                 {tkt.ticketCustomFields[6].restValue}
