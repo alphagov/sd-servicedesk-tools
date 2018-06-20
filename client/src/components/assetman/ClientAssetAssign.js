@@ -5,10 +5,9 @@ import { connect } from 'react-redux';
 
 import { searchClient } from '../../actions/client';
 import { updateAssetClient } from '../../actions/assets';
-import {
-  selectClientsResultsNames,
-  selectAssetSearchResult
-} from '../../reducers/selectors';
+
+import { selectClientsResultsNames } from '../../reducers/selectors/clients';
+import { selectAssetSearchResult } from '../../reducers/selectors/assets';
 
 class ClientAssetAssign extends Component {
   componentWillMount() {
@@ -92,8 +91,9 @@ const mapStateToProps = state => {
   };
 };
 
-ClientAssetAssign = connect(mapStateToProps, mapDispatchToProps)(
-  ClientAssetAssign
-);
+ClientAssetAssign = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClientAssetAssign);
 
 export default ClientAssetAssign;

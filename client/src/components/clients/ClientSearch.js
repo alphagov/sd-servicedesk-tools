@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { searchClient, fetchClient } from '../../actions/client';
 import { fetchClientAssets, clearClientAssets } from '../../actions/assets';
-import { selectClientsResultsNames } from '../../reducers/selectors';
+import { selectClientsResultsNames } from '../../reducers/selectors/clients';
 
 class ClientSearch extends Component {
   componentWillMount() {
@@ -82,4 +82,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientSearch);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClientSearch);

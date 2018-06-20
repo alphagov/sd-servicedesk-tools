@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, List } from 'semantic-ui-react';
 
-import { selectAssetSearchResult } from '../../reducers/selectors';
+import { selectAssetSearchResult } from '../../reducers/selectors/assets';
 import { fetchAssetClients, clearAssetClients } from '../../actions/client';
 import { clearSearchAssets } from '../../actions/assets';
 

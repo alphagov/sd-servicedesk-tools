@@ -12,7 +12,7 @@ import {
   selectNewStartTicketsPending,
   selectGDSNewStartTicketsSorted,
   selectContractorNewStartTicketsSorted
-} from '../../reducers/selectors';
+} from '../../reducers/selectors/tickets';
 
 class NewStartsHome extends Component {
   componentDidMount() {

@@ -6,9 +6,11 @@ import { Header, Card, Button, Loader, Dropdown } from 'semantic-ui-react';
 import {
   selectClientAssets,
   selectClientAssetsWithStatus,
-  selectAssetsStatus,
   selectClient
-} from '../../reducers/selectors';
+} from '../../reducers/selectors/clients';
+
+import { selectAssetsStatus } from '../../reducers/selectors/assets';
+
 import {
   clearClientAssets,
   updateAssetStatus,
@@ -128,4 +130,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientAssetCard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClientAssetCard);

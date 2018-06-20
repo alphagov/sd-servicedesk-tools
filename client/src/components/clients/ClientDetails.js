@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Card } from 'semantic-ui-react';
 
-import { selectClient } from '../../reducers/selectors';
+import { selectClient } from '../../reducers/selectors/clients';
 import { clearClient } from '../../actions/client';
 
 class ClientDetails extends Component {
@@ -45,4 +45,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientDetails);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClientDetails);

@@ -9,7 +9,7 @@ import { updateAssetLocation } from '../../actions/assets';
 import {
   selectAssetLocations,
   selectAssetSearchResult
-} from '../../reducers/selectors';
+} from '../../reducers/selectors/assets';
 
 class AssetDetailsLocations extends Component {
   renderLocationName() {
@@ -74,8 +74,9 @@ const mapDispatchToProps = {
   updateAssetLocation
 };
 
-AssetDetailsLocations = connect(mapStateToProps, mapDispatchToProps)(
-  AssetDetailsLocations
-);
+AssetDetailsLocations = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AssetDetailsLocations);
 
 export default AssetDetailsLocations;

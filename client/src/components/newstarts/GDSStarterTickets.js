@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import moment from 'moment';
 
-import { selectGDSNewStartTicketsSorted } from '../../reducers/selectors';
+import { selectGDSNewStartTicketsSorted } from '../../reducers/selectors/tickets';
 
 class GDSStarterTickets extends Component {
   renderNewStarts() {

@@ -7,7 +7,7 @@ import { Card, Dropdown } from 'semantic-ui-react';
 import {
   selectAssetsStatus,
   selectAssetSearchResult
-} from '../../reducers/selectors';
+} from '../../reducers/selectors/assets';
 
 import { updateAssetStatus } from '../../actions/assets';
 
@@ -80,8 +80,9 @@ const mapStateToProps = state => {
   };
 };
 
-AssetDetailsStatus = connect(mapStateToProps, mapDispatchToProps)(
-  AssetDetailsStatus
-);
+AssetDetailsStatus = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AssetDetailsStatus);
 
 export default AssetDetailsStatus;

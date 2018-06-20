@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Card, Radio } from 'semantic-ui-react';
 
-import { selectAssetSearchResult } from '../../reducers/selectors';
+import { selectAssetSearchResult } from '../../reducers/selectors/assets';
 import { updateAssetReservable } from '../../actions/assets';
 
 class AssetDetailsReservable extends Component {
@@ -42,8 +42,9 @@ const mapStateToProps = state => {
   return { asset: selectAssetSearchResult(state) };
 };
 
-AssetDetailsReservable = connect(mapStateToProps, mapDispatchToProps)(
-  AssetDetailsReservable
-);
+AssetDetailsReservable = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AssetDetailsReservable);
 
 export default AssetDetailsReservable;

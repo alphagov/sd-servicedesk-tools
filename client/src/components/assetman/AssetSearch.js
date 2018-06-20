@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { Search } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-import { selectAssetSearchResultName } from '../../reducers/selectors';
+import { selectAssetSearchResultName } from '../../reducers/selectors/assets';
 import { searchAssets, clearSearchAssets } from '../../actions/assets';
 
 class AssetSearch extends Component {
@@ -77,4 +77,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AssetSearch);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AssetSearch);

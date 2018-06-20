@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import moment from 'moment';
 
-import { selectContractorNewStartTicketsSorted } from '../../reducers/selectors';
+import { selectContractorNewStartTicketsSorted } from '../../reducers/selectors/tickets';
 
 class ContractorStarterTickets extends Component {
   renderNewStarts() {

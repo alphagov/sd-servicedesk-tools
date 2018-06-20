@@ -4,10 +4,8 @@ import { connect } from 'react-redux';
 
 import { clearAssetClients } from '../../actions/client';
 import { updateAssetClient } from '../../actions/assets';
-import {
-  selectAssetClients,
-  selectAssetSearchResult
-} from '../../reducers/selectors';
+import { selectAssetClients } from '../../reducers/selectors/clients';
+import { selectAssetSearchResult } from '../../reducers/selectors/assets';
 
 import ClientAssetAssign from './ClientAssetAssign';
 
@@ -73,6 +71,9 @@ const mapStateToProps = state => {
   };
 };
 
-AssetClients = connect(mapStateToProps, mapDispatchToProps)(AssetClients);
+AssetClients = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AssetClients);
 
 export default AssetClients;

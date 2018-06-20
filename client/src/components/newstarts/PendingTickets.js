@@ -10,7 +10,7 @@ import { removeHTML } from '../../utils/stringManip';
 import {
   selectNewStartTicketsPendingSorted,
   selectTicket
-} from '../../reducers/selectors';
+} from '../../reducers/selectors/tickets';
 import { fetchTicketDetails } from '../../actions/tickets';
 
 class PendingTickets extends Component {
