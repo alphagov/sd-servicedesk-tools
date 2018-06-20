@@ -73,7 +73,7 @@ class PendingTickets extends Component {
         <Header as="h4">
           Latest note on ticket was <Moment fromNow>{notes[i].date}</Moment>
         </Header>
-        <p>{removeHTML(notes[1].mobileNoteText)}</p>
+        <p>{removeHTML(notes[i].mobileNoteText)}</p>
       </span>
     );
   }
