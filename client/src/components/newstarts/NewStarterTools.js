@@ -23,7 +23,7 @@ class NewStartsHome extends Component {
   }
 
   render() {
-    const { pending, gdsStarters, CLONEStarters } = this.props;
+    const { pending, gdsStarters, conStarters } = this.props;
     return (
       <div>
         <Card.Group itemsPerRow={3}>
@@ -44,7 +44,7 @@ class NewStartsHome extends Component {
                 New Contractor/Other Starts Approved
               </Header>
             </Card.Content>
-            <Card.Content extra>{CLONEStarters.length} Tickets</Card.Content>
+            <Card.Content extra>{conStarters.length} Tickets</Card.Content>
           </Card>
 
           <Card raised as={Link} to="/tickets/newstarts/pending">
@@ -66,7 +66,7 @@ const mapStateToProps = state => {
   return {
     pending: selectNewStartTicketsPending(state),
     gdsStarters: selectGDSNewStartTicketsSorted(state),
-    CLONEStarters: selectContractorNewStartTicketsSorted(state)
+    conStarters: selectContractorNewStartTicketsSorted(state)
   };
 };
 

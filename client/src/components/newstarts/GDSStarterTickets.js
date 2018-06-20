@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import moment from 'moment';
 
+import NewStartsMenu from './NewStartsMenu';
+
 import { selectGDSNewStartTicketsSorted } from '../../reducers/selectors/tickets';
 import { fetchTicketDetails } from '../../actions/tickets';
 
@@ -57,7 +59,10 @@ class GDSStarterTickets extends Component {
         <Header as="h3" textAlign="center">
           New Starter Tickets
         </Header>
-        <Card.Group itemsPerRow={4}>{this.renderNewStarts()}</Card.Group>
+        <NewStartsMenu />
+        <Card.Group attached="bottom" itemsPerRow={4}>
+          {this.renderNewStarts()}
+        </Card.Group>
       </div>
     );
   }

@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import moment from 'moment';
 
+import NewStartsMenu from './NewStartsMenu';
+
 import { selectContractorNewStartTicketsSorted } from '../../reducers/selectors/tickets';
 
 class ContractorStarterTickets extends Component {
@@ -50,7 +52,11 @@ class ContractorStarterTickets extends Component {
         <Header as="h3" textAlign="center">
           New Starter Tickets
         </Header>
-        <Card.Group itemsPerRow={4}>{this.renderNewStarts()}</Card.Group>
+        <NewStartsMenu />
+
+        <Card.Group attached="bottom" itemsPerRow={4}>
+          {this.renderNewStarts()}
+        </Card.Group>
       </div>
     );
   }

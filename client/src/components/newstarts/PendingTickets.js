@@ -7,6 +7,8 @@ import moment from 'moment';
 import _ from 'lodash';
 import { removeHTML } from '../../utils/stringManip';
 
+import NewStartsMenu from './NewStartsMenu';
+
 import {
   selectNewStartTicketsPendingSorted,
   selectTicket
@@ -87,7 +89,11 @@ class PendingTickets extends Component {
         <Header as="h3" textAlign="center">
           Pending New Starter Tickets
         </Header>
-        <Card.Group itemsPerRow={4}>{this.renderPendingStarts()}</Card.Group>
+        <NewStartsMenu />
+
+        <Card.Group attached="bottom" itemsPerRow={4}>
+          {this.renderPendingStarts()}
+        </Card.Group>
 
         {!_.isEmpty(ticket) && (
           <Modal open={this.state.openModal} onClose={this.closeModal}>
