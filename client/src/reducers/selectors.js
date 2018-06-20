@@ -85,6 +85,27 @@ export const selectGDSNewStartTickets = state => state.gdsStarters;
 export const selectGDSNewStartTicketsSorted = createSelector(
   selectGDSNewStartTickets,
   newstarts => {
-    return _.orderBy(newstarts, 'ticketCustomFields[6].restValue', 'asc');
+    return _.orderBy(
+      newstarts.filter(
+        newstart =>
+          newstart.problemtype.id === 7 || newstart.problemtype.id === 8
+      ),
+      'ticketCustomFields[6].restValue',
+      'asc'
+    );
+  }
+);
+
+export const selectContractorNewStartTicketsSorted = createSelector(
+  selectGDSNewStartTickets,
+  newstarts => {
+    return _.orderBy(
+      newstarts.filter(
+        newstart =>
+          newstart.problemtype.id === 18 || newstart.problemtype.id === 62
+      ),
+      'ticketCustomFields[6].restValue',
+      'asc'
+    );
   }
 );

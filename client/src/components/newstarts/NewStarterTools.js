@@ -10,7 +10,8 @@ import {
 } from '../../actions/starters';
 import {
   selectNewStartTicketsPending,
-  selectGDSNewStartTickets
+  selectGDSNewStartTicketsSorted,
+  selectContractorNewStartTicketsSorted
 } from '../../reducers/selectors';
 
 class NewStartsHome extends Component {
@@ -22,18 +23,28 @@ class NewStartsHome extends Component {
   }
 
   render() {
-    const { pending, gdsStarters } = this.props;
+    const { pending, gdsStarters, CLONEStarters } = this.props;
     return (
       <div>
-        <Card.Group itemsPerRow={2}>
+        <Card.Group itemsPerRow={3}>
           <Card raised as={Link} to="/tickets/newstarts/gds">
             <Card.Content>
               <Header as="h5">
                 <Icon name="users" size="large" />
-                New Starts Approved
+                New GDS Starts Approved
               </Header>
             </Card.Content>
             <Card.Content extra>{gdsStarters.length} Tickets</Card.Content>
+          </Card>
+
+          <Card raised as={Link} to="/tickets/newstarts/contractor">
+            <Card.Content>
+              <Header as="h5">
+                <Icon name="users" size="large" />
+                New Contractor/Other Starts Approved
+              </Header>
+            </Card.Content>
+            <Card.Content extra>{CLONEStarters.length} Tickets</Card.Content>
           </Card>
 
           <Card raised as={Link} to="/tickets/newstarts/pending">
@@ -54,7 +65,8 @@ class NewStartsHome extends Component {
 const mapStateToProps = state => {
   return {
     pending: selectNewStartTicketsPending(state),
-    gdsStarters: selectGDSNewStartTickets(state)
+    gdsStarters: selectGDSNewStartTicketsSorted(state),
+    CLONEStarters: selectContractorNewStartTicketsSorted(state)
   };
 };
 
