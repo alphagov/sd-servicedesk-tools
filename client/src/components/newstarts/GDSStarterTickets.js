@@ -23,6 +23,8 @@ class GDSStarterTickets extends Component {
       let timeDiff = moment(tkt.ticketCustomFields[6].restValue).isSameOrAfter(
         Date.now()
       );
+      let dayStart = moment(tkt.ticketCustomFields[6].restValue).startOf('day');
+
       return (
         <Card
           key={tkt.id}
@@ -39,9 +41,7 @@ class GDSStarterTickets extends Component {
             <Card.Meta>Client: {tkt.displayClient}</Card.Meta>
             <Card.Meta>Analyst: {tkt.clientTech.displayName}</Card.Meta>
             <Card.Description>
-              Starts&nbsp;<Moment fromNow>
-                {tkt.ticketCustomFields[6].restValue}
-              </Moment>
+              Starts&nbsp;<Moment fromNow>{dayStart}</Moment>
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
