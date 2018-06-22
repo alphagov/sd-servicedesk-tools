@@ -33,7 +33,7 @@ class Header extends Component {
     return (
       <div>
         <Menu size="huge" inverted borderless fixed="top">
-          <Menu.Item header as={Link} to={auth ? '/sd-tools' : '/'}>
+          <Menu.Item header as={Link} to={auth ? '/sd-dashboard' : '/'}>
             Service Desk Tools
           </Menu.Item>
 
