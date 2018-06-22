@@ -35,7 +35,11 @@ const Routes = () => {
           <Route path="/asset-manager" component={AssetManager} />
           <Route path="/asset-finder" component={AssetFinder} />
           <Route path="/asset-maker" component={AssetMaker} />
-          <Route path="/starters-leavers" component={StartersLeaversTools} />
+          <Route
+            exact
+            path="/starters-leavers"
+            component={StartersLeaversTools}
+          />
           <Route path="/tickets/newstarts/pending" component={PendingTickets} />
           <Route path="/tickets/newstarts/gds" component={GDSStarterTickets} />
           <Route

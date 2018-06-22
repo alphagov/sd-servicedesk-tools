@@ -7,8 +7,8 @@ const NewStartsMenu = () => {
   return (
     <div>
       <Menu attached="top" style={{ marginBottom: '1em' }}>
-        <Menu.Item as={Link} to="/sd-tools">
-          SD Tools
+        <Menu.Item as={Link} to="/starters-leavers">
+          Starters &amp; Leavers
         </Menu.Item>
         <Menu.Item as={Link} to="/tickets/newstarts/gds">
           GDS Starters
