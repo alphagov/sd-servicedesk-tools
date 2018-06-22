@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Header, Grid } from 'semantic-ui-react';
 
 import AssetTools from './assetman/AssetTools';
-import NewStarterTools from './newstarts/NewStarterTools';
+import NewStarterTools from './startersleavers/NewStarterTools';
 
 class SDTools extends Component {
   render() {

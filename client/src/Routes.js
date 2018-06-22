@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react';
 
 import Header from './components/Header';
 import Landing from './components/Landing';
+import SDDashboard from './components/SDDashboard';
 import SDTools from './components/SDTools';
 import Login from './components/auth/Login';
 import Enrol from './components/auth/Enrol';
@@ -12,10 +13,10 @@ import AssetManager from './components/assetman/AssetManager';
 import AssetFinder from './components/assetman/AssetFinder';
 import AssetMaker from './components/assetman/AssetMaker';
 
-import PendingTickets from './components/newstarts/PendingTickets';
-import GDSStarterTickets from './components/newstarts/GDSStarterTickets';
-import ContractorStarterTickets from './components/newstarts/ContractorStarterTickets';
-import StarterTicketDetails from './components/newstarts/StarterTicketDetails';
+import PendingTickets from './components/startersleavers/PendingTickets';
+import GDSStarterTickets from './components/startersleavers/GDSStarterTickets';
+import ContractorStarterTickets from './components/startersleavers/ContractorStarterTickets';
+import StarterTicketDetails from './components/startersleavers/StarterTicketDetails';
 
 const Routes = () => {
   return (
@@ -26,6 +27,7 @@ const Routes = () => {
           <Route exact path="/" component={Landing} />
           <Route path="/login" component={Login} />
           <Route path="/enrol" component={Enrol} />
+          <Route path="/sd-dashboard" component={SDDashboard} />
           <Route path="/sd-tools" component={SDTools} />
           <Route path="/asset-manager" component={AssetManager} />
           <Route path="/asset-finder" component={AssetFinder} />

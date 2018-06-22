@@ -9,7 +9,6 @@ import { loginTech } from '../../actions/auth';
 const renderLoginFields = ({
   input,
   label,
-  className,
   type,
   icon,
   iconPosition,
@@ -28,10 +27,10 @@ const renderLoginFields = ({
 );
 
 class Login extends Component {
-  loginWHDTech(values, dispatch) {
+  loginWHDTech(values) {
     const { loginTech, history } = this.props;
     loginTech(values).then(() => {
-      history.push('/sd-tools');
+      history.push('/sd-dashboard');
     });
   }
 
@@ -88,7 +87,10 @@ const mapDispatchToProps = {
   loginTech
 };
 
-Login = connect(null, mapDispatchToProps)(Login);
+Login = connect(
+  null,
+  mapDispatchToProps
+)(Login);
 
 export default reduxForm({
   // validate,
