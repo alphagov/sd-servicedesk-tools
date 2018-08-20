@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
-import { Grid, Form, Header, Item, Breadcrumb } from 'semantic-ui-react';
+import { Grid, Header, Item, Breadcrumb } from 'semantic-ui-react';
 import Moment from 'react-moment';
 import { removeHTML } from '../../utils/stringManip';
 
@@ -20,7 +20,7 @@ class StarterTicketDetails extends Component {
       );
     }
 
-    return ticket.notes.map(note => {
+    return ticket.notes.map((note) => {
       let noteText = removeHTML(note.mobileNoteText);
       return (
         <Item key={note.id}>
@@ -77,7 +77,7 @@ class StarterTicketDetails extends Component {
 
 const mapDispatchToProps = {};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     ticket: selectTicket(state)
   };
