@@ -15,11 +15,8 @@ export const fetchNewsStartsPending = () => async (dispatch) => {
   // 2 things:
   // 1: iterate over the data and get the full tickets
   // 2: use graphql (fave solution) but need to learn a bit more on token/apikey
-  // for (let x in res.data) {
-  //   dispatch(fetchTicketDetailsPending(res.data[x].id));
-  // }
+
   dispatch({ type: NEW_START_TICKETS_PENDING, payload: res.data });
-  // console.log(res.data);
 };
 
 // this is messy need some redux middleware
@@ -41,10 +38,5 @@ export const fetchNewStartsApprovedGDS = () => async (dispatch) => {
 
   const res = await axios.get('/api/whd/tickets/newstart/gds');
 
-  // console.log(res.data);
   dispatch({ type: NEW_START_TICKETS_GDS, payload: res.data });
-
-  // for (let x in res.data) {
-  //   dispatch(fetchTicketDetailsGDS(res.data[x].id));
-  // }
 };
