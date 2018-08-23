@@ -7,9 +7,9 @@ const ticketController = require('../controllers/ticketController');
 router.get(
   '/newstart/pending',
   requireLogin,
-  ticketController.getPendingNewStarts
+  ticketController.getPendingNewStartsBulk
 );
-router.get('/newstart/gds', requireLogin, ticketController.getGDSNewStarts);
+router.get('/newstart/gds', requireLogin, ticketController.getGDSNewStartsBulk);
 router.get('/:id', requireLogin, ticketController.getTicketDetails);
 
 module.exports = router;

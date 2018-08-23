@@ -13,7 +13,7 @@ const INITIAL_STATE_O = {};
 export const newStartPendingReducer = (state = INITIAL_STATE_A, action) => {
   switch (action.type) {
     case NEW_START_TICKETS_PENDING:
-      return [...state, action.payload];
+      return action.payload;
 
     case CLEAR_START_TICKETS_PENDING:
       return INITIAL_STATE_A;
@@ -26,7 +26,7 @@ export const newStartPendingReducer = (state = INITIAL_STATE_A, action) => {
 export const newStartGDSReducer = (state = INITIAL_STATE_A, action) => {
   switch (action.type) {
     case NEW_START_TICKETS_GDS:
-      return [...state, action.payload];
+      return action.payload;
 
     case CLEAR_START_TICKETS_GDS:
       return INITIAL_STATE_A;

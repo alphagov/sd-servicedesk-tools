@@ -19,6 +19,26 @@ module.exports = {
     res.send(pendingStarts.data);
   },
 
+  getPendingNewStartsBulk: async (req, res) => {
+    const pendingStarts = await axios.get(ticketURI, {
+      params: {
+        qualifier: pendingQual,
+        apiKey: req.user.apiKey
+      }
+    });
+    const startTickets = [];
+    if (pendingStarts.data.length > 0) {
+      for (let x in pendingStarts.data) {
+        const starter = await getTicketDetailsBulk(
+          pendingStarts.data[x].id,
+          req.user.apiKey
+        );
+        startTickets.push(starter);
+      }
+    }
+    res.send(startTickets);
+  },
+
   getGDSNewStarts: async (req, res) => {
     const gdsStarts = await axios.get(ticketURI, {
       params: {
@@ -29,6 +49,26 @@ module.exports = {
 
     res.send(gdsStarts.data);
   },
+  getGDSNewStartsBulk: async (req, res) => {
+    const gdsStarts = await axios.get(ticketURI, {
+      params: {
+        qualifier: gdsQual,
+        apiKey: req.user.apiKey
+      }
+    });
+
+    const startTickets = [];
+    if (gdsStarts.data.length > 0) {
+      for (let x in gdsStarts.data) {
+        const starter = await getTicketDetailsBulk(
+          gdsStarts.data[x].id,
+          req.user.apiKey
+        );
+        startTickets.push(starter);
+      }
+    }
+    res.send(startTickets);
+  },
 
   getTicketDetails: async (req, res) => {
     const tktDB = await axios.get(`${ticketURI}/${req.params.id}`, {
@@ -38,4 +78,13 @@ module.exports = {
     });
     res.send(tktDB.data);
   }
+};
+
+getTicketDetailsBulk = async (id, apiKey) => {
+  const tktDB = await axios.get(`${ticketURI}/${id}`, {
+    params: {
+      apiKey
+    }
+  });
+  return tktDB.data;
 };
