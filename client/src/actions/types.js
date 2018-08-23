@@ -34,3 +34,6 @@ export const NEW_START_TICKETS_GDS = 'new_start_tickets_gds';
 
 export const FETCH_TICKET_DETAILS = 'fetch_ticket_details';
 export const CLEAR_TICKET_DETAILS = 'clear_ticket_details';
+
+// events
+export const FETCH_WCH_EVENTS = 'fetch_wch_events';

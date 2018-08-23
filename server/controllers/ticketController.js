@@ -6,6 +6,8 @@ const ticketURI = keys.whdURI + 'Tickets';
 // TODO set up a db collection to manage these qualifiers
 const pendingQual = '((techGroupLevel.id=28)AND(statusTypeId=8))';
 const gdsQual = '((techGroupLevel.id=28)AND(statusTypeId=17))';
+const wchEventsQual =
+  '((techGroupLevel.id=55)AND(statusTypeId!=3)AND(statusTypeId!=5)AND(statusTypeId!=4))';
 
 module.exports = {
   getPendingNewStarts: async (req, res) => {
@@ -17,6 +19,26 @@ module.exports = {
     });
 
     res.send(pendingStarts.data);
+  },
+
+  getWCHEventsBulk: async (req, res) => {
+    const wchEvents = await axios.get(ticketURI, {
+      params: {
+        qualifier: wchEventsQual,
+        apiKey: req.user.apiKey
+      }
+    });
+    const eventsTickets = [];
+    if (wchEvents.data.length > 0) {
+      for (let x in wchEvents.data) {
+        const eventT = await getTicketDetailsBulk(
+          wchEvents.data[x].id,
+          req.user.apiKey
+        );
+        eventsTickets.push(eventT);
+      }
+    }
+    res.send(eventsTickets);
   },
 
   getPendingNewStartsBulk: async (req, res) => {

@@ -21,17 +21,17 @@ export const fetchNewsStartsPending = () => async (dispatch) => {
 
 // this is messy need some redux middleware
 
-export const fetchTicketDetailsPending = (id) => async (dispatch) => {
-  const res = await axios.get(`/api/whd/tickets/${id}`);
-  dispatch({ type: NEW_START_TICKETS_PENDING, payload: res.data });
-};
+// export const fetchTicketDetailsPending = (id) => async (dispatch) => {
+//   const res = await axios.get(`/api/whd/tickets/${id}`);
+//   dispatch({ type: NEW_START_TICKETS_PENDING, payload: res.data });
+// };
 
-export const fetchTicketDetailsGDS = (id) => async (dispatch) => {
-  const res = await axios.get(`/api/whd/tickets/${id}`);
-  // add into contractors here
-  // nope we really need some redux middleware
-  dispatch({ type: NEW_START_TICKETS_GDS, payload: res.data });
-};
+// export const fetchTicketDetailsGDS = (id) => async (dispatch) => {
+//   const res = await axios.get(`/api/whd/tickets/${id}`);
+//   // add into contractors here
+//   // nope we really need some redux middleware
+//   dispatch({ type: NEW_START_TICKETS_GDS, payload: res.data });
+// };
 
 export const fetchNewStartsApprovedGDS = () => async (dispatch) => {
   dispatch({ type: CLEAR_START_TICKETS_GDS });

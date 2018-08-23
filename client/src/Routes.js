@@ -20,6 +20,8 @@ import GDSStarterTickets from './components/startersleavers/GDSStarterTickets';
 import ContractorStarterTickets from './components/startersleavers/ContractorStarterTickets';
 import StarterTicketDetails from './components/startersleavers/StarterTicketDetails';
 
+import WCHEvents from './components/events/WCHEvents';
+
 const Routes = () => {
   return (
     <BrowserRouter>
@@ -50,6 +52,7 @@ const Routes = () => {
             path="/tickets/newstarts/details/:tktId"
             component={StarterTicketDetails}
           />
+          <Route path="/events/wch" component={WCHEvents} />
         </Container>
       </div>
     </BrowserRouter>

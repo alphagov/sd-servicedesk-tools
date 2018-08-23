@@ -33,7 +33,7 @@ class SDDashboard extends Component {
               </Card>
             </Grid.Column>
             <Grid.Column>
-              <Card as={Link} to={tech.apiKey ? '/' : '/enrol'}>
+              <Card as={Link} to={tech.apiKey ? '/events/wch' : '/enrol'}>
                 <Card.Content>
                   <Header as="h4" textAlign="center">
                     Events
@@ -48,7 +48,7 @@ class SDDashboard extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     tech: selectTechDetails(state)
   };
