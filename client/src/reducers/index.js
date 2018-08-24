@@ -18,7 +18,8 @@ import {
 import {
   newStartPendingReducer,
   ticketReducer,
-  newStartGDSReducer
+  newStartGDSReducer,
+  wchEventsReducer
 } from './ticketsReducer';
 
 const reducer = combineReducers({
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   assetRooms: assetRoomsReducer,
   newStartPending: newStartPendingReducer,
   gdsStarters: newStartGDSReducer,
+  wchEvents: wchEventsReducer,
   ticket: ticketReducer,
   form: reduxForm
 });

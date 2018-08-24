@@ -4,11 +4,22 @@ import {
   CLEAR_START_TICKETS_PENDING,
   CLEAR_START_TICKETS_GDS,
   NEW_START_TICKETS_GDS,
+  FETCH_WCH_EVENTS,
   CLEAR_TICKET_DETAILS
 } from '../actions/types';
 
 const INITIAL_STATE_A = [];
 const INITIAL_STATE_O = {};
+
+export const wchEventsReducer = (state = INITIAL_STATE_A, action) => {
+  switch (action.type) {
+    case FETCH_WCH_EVENTS:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
 
 export const newStartPendingReducer = (state = INITIAL_STATE_A, action) => {
   switch (action.type) {

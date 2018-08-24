@@ -1,25 +1,28 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash';
 
-export const selectTicket = state => state.ticket;
-
-export const selectNewStartTicketsPending = state => state.newStartPending;
+// tickets
+export const selectTicket = (state) => state.ticket;
+// new starts pending
+export const selectNewStartTicketsPending = (state) => state.newStartPending;
+// new start tickets
+export const selectGDSNewStartTickets = (state) => state.gdsStarters;
+// events
+export const selectWCHEvents = (state) => state.wchEvents;
 
 export const selectNewStartTicketsPendingSorted = createSelector(
   selectNewStartTicketsPending,
-  newstarts => {
+  (newstarts) => {
     return _.orderBy(newstarts, 'ticketCustomFields[6].restValue', 'asc');
   }
 );
 
-export const selectGDSNewStartTickets = state => state.gdsStarters;
-
 export const selectGDSNewStartTicketsSorted = createSelector(
   selectGDSNewStartTickets,
-  newstarts => {
+  (newstarts) => {
     return _.orderBy(
       newstarts.filter(
-        newstart =>
+        (newstart) =>
           newstart.problemtype.id === 7 || newstart.problemtype.id === 8
       ),
       'ticketCustomFields[6].restValue',
@@ -30,14 +33,21 @@ export const selectGDSNewStartTicketsSorted = createSelector(
 
 export const selectContractorNewStartTicketsSorted = createSelector(
   selectGDSNewStartTickets,
-  newstarts => {
+  (newstarts) => {
     return _.orderBy(
       newstarts.filter(
-        newstart =>
+        (newstart) =>
           newstart.problemtype.id === 18 || newstart.problemtype.id === 62
       ),
       'ticketCustomFields[6].restValue',
       'asc'
     );
+  }
+);
+
+export const selectWCHEventsTicketsSorted = createSelector(
+  selectWCHEvents,
+  (events) => {
+    return _.orderBy(events, 'ticketCustomFields[1].restValue', 'asc');
   }
 );
