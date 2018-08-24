@@ -48,6 +48,10 @@ export const selectContractorNewStartTicketsSorted = createSelector(
 export const selectWCHEventsTicketsSorted = createSelector(
   selectWCHEvents,
   (events) => {
-    return _.orderBy(events, 'ticketCustomFields[1].restValue', 'asc');
+    return _.orderBy(
+      events.filter((event) => event.problemtype.id === 95),
+      'ticketCustomFields[1].restValue',
+      'asc'
+    );
   }
 );
