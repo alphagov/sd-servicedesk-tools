@@ -18,7 +18,10 @@ class WCHEvents extends Component {
         <Item key={event.id}>
           <Item.Content>
             <Item.Header>
-              {event.ticketCustomFields[0].restValue}{' '}
+              {event.ticketCustomFields[0].restValue
+                ? event.ticketCustomFields[0].restValue
+                : 'No location given'}
+              &nbsp;
               <Moment fromNow>{event.ticketCustomFields[1].restValue}</Moment>
             </Item.Header>
             <Item.Meta>{event.id}</Item.Meta>
