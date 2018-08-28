@@ -74,8 +74,8 @@ class WCHEvents extends Component {
   render() {
     return (
       <div>
-        <Header as="h2" textAlign="center">
-          WCH Events
+        <Header as="h3" textAlign="center">
+          Whitechapel Events
         </Header>
         <Segment>
           <Item.Group divided relaxed>

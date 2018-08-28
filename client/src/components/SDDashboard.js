@@ -33,7 +33,7 @@ class SDDashboard extends Component {
               </Card>
             </Grid.Column>
             <Grid.Column>
-              <Card as={Link} to={tech.apiKey ? '/events/wch' : '/enrol'}>
+              <Card as={Link} to={tech.apiKey ? '/events' : '/enrol'}>
                 <Card.Content>
                   <Header as="h4" textAlign="center">
                     Events
