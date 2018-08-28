@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Header, Card, Icon } from 'semantic-ui-react';
+import { Header, Card, Icon, Dimmer, Loader } from 'semantic-ui-react';
 
 import {
   fetchNewsStartsPending,
@@ -15,15 +15,29 @@ import {
 } from '../../reducers/selectors/tickets';
 
 class NewStartsHome extends Component {
+  state = {
+    loader: true
+  };
+
   componentDidMount() {
     const { fetchNewsStartsPending, fetchNewStartsApprovedGDS } = this.props;
 
     fetchNewsStartsPending();
-    fetchNewStartsApprovedGDS();
+    fetchNewStartsApprovedGDS().then(() => {
+      this.setState({ loader: false });
+    });
   }
 
   render() {
     const { pending, gdsStarters, conStarters } = this.props;
+    const { loader } = this.state;
+    if (loader) {
+      return (
+        <Dimmer active={loader} style={{ height: '6em' }}>
+          <Loader indeterminate>Fetching new starters.......</Loader>
+        </Dimmer>
+      );
+    }
     return (
       <div>
         <Card.Group itemsPerRow={3}>
@@ -62,7 +76,7 @@ class NewStartsHome extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     pending: selectNewStartTicketsPending(state),
     gdsStarters: selectGDSNewStartTicketsSorted(state),
