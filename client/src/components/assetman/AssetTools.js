@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Header, Card, Icon } from 'semantic-ui-react';
+import ToolsMenu from '../ToolsMenu';
 
 class AssetTools extends Component {
   render() {
@@ -10,6 +11,7 @@ class AssetTools extends Component {
         <Header as="h2" textAlign="center">
           Assets
         </Header>
+        <ToolsMenu />
         <Card.Group itemsPerRow={3} centered>
           <Card as={Link} to="/asset-manager" raised>
             <Card.Content>

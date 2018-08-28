@@ -41,10 +41,10 @@ class ExternalEvents extends Component {
               {event.ticketCustomFields[2].restValue
                 ? trimmedAddr
                 : 'No location given'}
-              &nbsp;
+              &nbsp;starts&nbsp;
               <Moment fromNow>{event.ticketCustomFields[0].restValue}</Moment>
               {event.statustype.id === 8 && (
-                <span> Still awaiting approval!</span>
+                <span> - Still awaiting approval!</span>
               )}
             </Item.Header>
             <Item.Meta>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import WCHEvents from './WCHEvents';
 import ExternalEvents from './ExternalEvents';
+import ToolsMenu from '../ToolsMenu';
 import { fetchGDSEvents } from '../../actions/events';
 
 class EventsHome extends Component {
@@ -16,6 +17,7 @@ class EventsHome extends Component {
         <Header as="h2" textAlign="center">
           Events Home
         </Header>
+        <ToolsMenu />
         <Grid columns={2}>
           <Grid.Column>
             <WCHEvents />

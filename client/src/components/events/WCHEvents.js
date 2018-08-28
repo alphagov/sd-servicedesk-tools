@@ -37,10 +37,10 @@ class WCHEvents extends Component {
               {event.ticketCustomFields[0].restValue
                 ? event.ticketCustomFields[0].restValue
                 : 'No location given'}
-              &nbsp;
+              &nbsp;starts&nbsp;
               <Moment fromNow>{event.ticketCustomFields[1].restValue}</Moment>
               {event.statustype.id === 8 && (
-                <span> Still awaiting approval!</span>
+                <span> - Still awaiting approval!</span>
               )}
             </Item.Header>
             <Item.Meta>

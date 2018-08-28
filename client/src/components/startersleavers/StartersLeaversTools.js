@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, Grid } from 'semantic-ui-react';
 
 import NewStarterTools from './NewStarterTools';
+import ToolsMenu from '../ToolsMenu';
 
 const StartersLeaversTooLs = () => {
   return (
@@ -9,6 +10,7 @@ const StartersLeaversTooLs = () => {
       <Header as="h1" textAlign="center">
         Starts &amp; Leavers
       </Header>
+      <ToolsMenu />
       <Grid>
         <Grid.Row>
           <Grid.Column>
