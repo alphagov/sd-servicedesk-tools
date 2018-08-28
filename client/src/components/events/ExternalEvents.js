@@ -23,6 +23,11 @@ class ExternalEvents extends Component {
       );
     }
     return events.map((event) => {
+      let trimmedAddr = event.ticketCustomFields[2].restValue.substr(0, 50);
+      trimmedAddr = trimmedAddr.substr(
+        0,
+        Math.min(trimmedAddr.length, trimmedAddr.lastIndexOf(' '))
+      );
       return (
         <Item key={event.id}>
           <Item.Content>
@@ -34,7 +39,7 @@ class ExternalEvents extends Component {
               }
             >
               {event.ticketCustomFields[2].restValue
-                ? event.ticketCustomFields[2].restValue
+                ? trimmedAddr
                 : 'No location given'}
               &nbsp;
               <Moment fromNow>{event.ticketCustomFields[0].restValue}</Moment>
