@@ -8,7 +8,7 @@ export const selectNewStartTicketsPending = (state) => state.newStartPending;
 // new start tickets
 export const selectGDSNewStartTickets = (state) => state.gdsStarters;
 // events
-export const selectWCHEvents = (state) => state.wchEvents;
+export const selectGDSEvents = (state) => state.wchEvents;
 
 export const selectNewStartTicketsPendingSorted = createSelector(
   selectNewStartTicketsPending,
@@ -46,11 +46,22 @@ export const selectContractorNewStartTicketsSorted = createSelector(
 );
 
 export const selectWCHEventsTicketsSorted = createSelector(
-  selectWCHEvents,
+  selectGDSEvents,
   (events) => {
     return _.orderBy(
       events.filter((event) => event.problemtype.id === 95),
       'ticketCustomFields[1].restValue',
+      'asc'
+    );
+  }
+);
+
+export const selectExternalEventsSorted = createSelector(
+  selectGDSEvents,
+  (events) => {
+    return _.orderBy(
+      events.filter((event) => event.problemtype.id === 31),
+      'ticketCustomFields[0].restValue',
       'asc'
     );
   }

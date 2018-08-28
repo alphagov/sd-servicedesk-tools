@@ -10,25 +10,15 @@ import {
   Label
 } from 'semantic-ui-react';
 
-import { fetchWCHEvents } from '../../actions/events';
 import { selectWCHEventsTicketsSorted } from '../../reducers/selectors/tickets';
 import { removeHTML } from '../../utils/stringManip';
 
 class WCHEvents extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { loader: true };
-  }
-  componentDidMount() {
-    this.props.fetchWCHEvents().then(() => this.setState({ loader: false }));
-  }
-
   renderEvents() {
     const { events } = this.props;
-    // console.log(events);
     if (events.length === 0) {
       return (
-        <Dimmer active={this.state.loader} style={{ height: '6em' }}>
+        <Dimmer active style={{ height: '6em' }}>
           <Loader indeterminate>Fetching internal events.......</Loader>
         </Dimmer>
       );
@@ -64,6 +54,7 @@ class WCHEvents extends Component {
                 {event.clientReporter.lastName}
               </Label>
               <Label>Analyst: {event.clientTech.displayName}</Label>
+              <Label>Ticket No: {event.id}</Label>
             </Item.Extra>
           </Item.Content>
         </Item>
@@ -93,11 +84,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  fetchWCHEvents
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(WCHEvents);
+export default connect(mapStateToProps)(WCHEvents);
