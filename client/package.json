@@ -8,25 +8,25 @@
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.20",
     "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-moment": "^0.7.9",
-    "react-redux": "^5.0.7",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-moment": "^0.8.2",
+    "react-redux": "^5.1.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.0",
     "redux": "^4.0.0",
-    "redux-form": "^7.3.0",
+    "redux-form": "^7.4.2",
     "redux-thunk": "^2.3.0",
-    "reselect": "^3.0.1",
-    "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react": "^0.79.0"
+    "reselect": "^4.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.83.0"
   },
   "devDependencies": {
     "check-prop-types": "^1.1.2",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "http-proxy-middleware": "^0.19.0",
-    "redux-devtools-extension": "^2.13.2"
+    "redux-devtools-extension": "^2.13.5"
   },
   "scripts": {
     "start": "react-scripts start",
