@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { isEmpty } from 'lodash';
-import { Grid, Header, Item, Breadcrumb } from 'semantic-ui-react';
+import { Grid, Header, Item, Label, Card } from 'semantic-ui-react';
 import Moment from 'react-moment';
 import { removeHTML } from '../../utils/stringManip';
 
@@ -14,11 +14,7 @@ class StarterTicketDetails extends Component {
     const { ticket } = this.props;
 
     if (isEmpty(ticket) || ticket.notes.length === 0) {
-      return (
-        <Item>
-          <Item.Header>No ticket notes</Item.Header>
-        </Item>
-      );
+      return <Label>No ticket notes</Label>;
     }
 
     return ticket.notes.map((note) => {
@@ -37,6 +33,32 @@ class StarterTicketDetails extends Component {
     });
   }
 
+  renderTicketDetails() {
+    const { ticket } = this.props;
+
+    if (isEmpty(ticket)) {
+      return <Label>No ticket details</Label>;
+    }
+
+    return (
+      <Card>
+        <Card.Content>
+          <Card.Header>
+            {ticket.ticketCustomFields[0].restValue}
+            &nbsp;
+            {ticket.ticketCustomFields[1].restValue}
+          </Card.Header>
+          <Card.Meta>{ticket.ticketCustomFields[2].restValue}</Card.Meta>
+          <Card.Meta>{ticket.ticketCustomFields[3].restValue}</Card.Meta>
+          <Card.Description>{removeHTML(ticket.detail)}</Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          Line Manager is {ticket.ticketCustomFields[5].restValue}
+        </Card.Content>
+      </Card>
+    );
+  }
+
   render() {
     const { ticket } = this.props;
     return (
@@ -48,7 +70,7 @@ class StarterTicketDetails extends Component {
 
         <Grid>
           <Grid.Row columns={2}>
-            <Grid.Column>Ticket details</Grid.Column>
+            <Grid.Column>{this.renderTicketDetails()}</Grid.Column>
             <Grid.Column>
               <Header as="h4" textAlign="center">
                 Notes
