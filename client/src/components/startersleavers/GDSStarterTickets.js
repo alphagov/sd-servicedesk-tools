@@ -19,11 +19,14 @@ class GDSStarterTickets extends Component {
 
   renderNewStarts() {
     const { starters } = this.props;
-    return starters.map(tkt => {
+    return starters.map((tkt) => {
       let timeDiff = moment(tkt.ticketCustomFields[6].restValue).isSameOrAfter(
         Date.now()
       );
-      let dayStart = moment(tkt.ticketCustomFields[6].restValue).startOf('day');
+      let dayStart = moment(tkt.ticketCustomFields[6].restValue).add(
+        8,
+        'hours'
+      );
 
       return (
         <Card
@@ -34,14 +37,17 @@ class GDSStarterTickets extends Component {
         >
           <Card.Content>
             <Card.Header>
-              {tkt.id}&nbsp;-&nbsp;{tkt.ticketCustomFields[0].restValue}&nbsp;{
-                tkt.ticketCustomFields[1].restValue
-              }
+              {tkt.id}
+              &nbsp;-&nbsp;
+              {tkt.ticketCustomFields[0].restValue}
+              &nbsp;
+              {tkt.ticketCustomFields[1].restValue}
             </Card.Header>
             <Card.Meta>Client: {tkt.displayClient}</Card.Meta>
             <Card.Meta>Analyst: {tkt.clientTech.displayName}</Card.Meta>
             <Card.Description>
-              Starts&nbsp;<Moment fromNow>{dayStart}</Moment>
+              Starts&nbsp;
+              <Moment fromNow>{dayStart}</Moment>
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -72,7 +78,7 @@ const mapDispatchToProps = {
   fetchTicketDetails
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     starters: selectGDSNewStartTicketsSorted(state)
   };
