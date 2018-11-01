@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button } from 'semantic-ui-react';
 
 import { checkName } from '../../utils/nameChecker';
 
@@ -41,8 +42,19 @@ class WHDClientStatusCheck extends Component {
   }
 
   render() {
-    console.log(this.state.whdAcc);
-    return <div>Client Status Check</div>;
+    const { whdAcc } = this.state;
+    return (
+      <div>
+        <Button
+          size="large"
+          negative={!whdAcc}
+          disabled={whdAcc}
+          positive={whdAcc}
+        >
+          WHD Account
+        </Button>
+      </div>
+    );
   }
 }
 
