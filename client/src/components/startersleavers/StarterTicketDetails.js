@@ -8,6 +8,7 @@ import { removeHTML } from '../../utils/stringManip';
 import { selectTicket } from '../../reducers/selectors/tickets';
 
 import NewStartsNav from './NewStartsNav';
+import ClientStatusCheck from '../clients/ClientStatusCheck';
 
 class StarterTicketDetails extends Component {
   renderTicketNotes() {
@@ -79,7 +80,9 @@ class StarterTicketDetails extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column>Updatable details in here</Grid.Column>
+            <Grid.Column>
+              <ClientStatusCheck />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </div>
