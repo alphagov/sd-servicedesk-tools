@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { Button, Menu, Icon, Dropdown } from 'semantic-ui-react';
+import { Button, Menu, Icon } from 'semantic-ui-react';
 
 class Header extends Component {
   renderMenus() {

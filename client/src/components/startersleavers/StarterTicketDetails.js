@@ -8,7 +8,7 @@ import { removeHTML } from '../../utils/stringManip';
 import { selectTicket } from '../../reducers/selectors/tickets';
 
 import NewStartsNav from './NewStartsNav';
-import ClientStatusCheck from '../clients/ClientStatusCheck';
+import WHDClientStatusCheck from '../clients/WHDClientStatusCheck';
 
 class StarterTicketDetails extends Component {
   renderTicketNotes() {
@@ -81,7 +81,10 @@ class StarterTicketDetails extends Component {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
-              <ClientStatusCheck />
+              <WHDClientStatusCheck
+                firstname={ticket.ticketCustomFields[0].restValue}
+                lastname={ticket.ticketCustomFields[1].restValue}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>
