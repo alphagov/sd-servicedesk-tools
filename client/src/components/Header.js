@@ -39,19 +39,6 @@ class Header extends Component {
 
           <Menu.Menu position="right">
             {auth && (
-              <Dropdown item text="Assets">
-                <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to={auth ? '/asset-manager' : '/'}>
-                    Asset Manager
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to={auth ? '/asset-finder' : '/'}>
-                    Asset Finder
-                  </Dropdown.Item>
-                  <Dropdown.Item>Asset Maker</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            )}
-            {auth && (
               <Menu.Item as={Link} to="/enrol">
                 Profile
               </Menu.Item>
@@ -70,7 +57,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { auth } = state;
   return { auth };
 };
