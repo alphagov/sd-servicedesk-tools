@@ -9,6 +9,7 @@ import { selectTicket } from '../../reducers/selectors/tickets';
 
 import NewStartsNav from './NewStartsNav';
 import WHDClientStatusCheck from '../clients/WHDClientStatusCheck';
+import GoogleClientStatusCheck from '../clients/GoogleClientStatusCheck';
 
 class StarterTicketDetails extends Component {
   renderTicketNotes() {
@@ -89,7 +90,9 @@ class StarterTicketDetails extends Component {
           </Grid.Row>
 
           <Grid.Row>
-            <Grid.Column>Google Status Check </Grid.Column>
+            <Grid.Column>
+              <GoogleClientStatusCheck />
+            </Grid.Column>
           </Grid.Row>
         </Grid>
       </div>
