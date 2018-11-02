@@ -87,6 +87,10 @@ class StarterTicketDetails extends Component {
               />
             </Grid.Column>
           </Grid.Row>
+
+          <Grid.Row>
+            <Grid.Column>Google Status Check </Grid.Column>
+          </Grid.Row>
         </Grid>
       </div>
     );
